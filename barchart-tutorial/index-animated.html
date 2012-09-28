@@ -62,6 +62,16 @@
         .attr("y2", h - .5)
         .style("stroke", "#000");
         
+      function redraw() {
+        chart.selectAll("rect")
+          .data(data)
+          .transition()
+          .duration(1000)
+          .attr("y", function(d) { return h - y(d.value) - .5; })
+          .attr("height", function(d) { return y(d.value); });
+      }        
+        
+        
 		</script>
 		
 	</body>
