@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<!-- see tutorial at http://mbostock.github.com/d3/tutorial/bar-1.html -->
 		<title></title>
 		
 		<style>
@@ -58,6 +59,17 @@
 			     		.attr("y", y)
 			     		.attr("width", x)
 			     		.attr("height", y.rangeBand());
+			
+			chart.selectAll("text")
+			     .data(data)
+			   .enter().append("text")
+			     .attr("x", x)
+			     .attr("y", function(d) { return y(d) + y.rangeBand() / 2; })
+			     .attr("dx", -3) // padding-right
+			     .attr("dy", ".35em") // vertical-align: middle
+			     .attr("text-anchor", "end") // text-align: right
+			     .text(String);
+			
 		</script>
 		
 	</body>
