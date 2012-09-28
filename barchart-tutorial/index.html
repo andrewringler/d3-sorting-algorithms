@@ -12,13 +12,18 @@
 			   margin: 1px;
 			   color: white;
 			}
+			
+			.chart rect {
+			   stroke: white;
+			   fill: steelblue;
+			}
 		</style>
 
 		<script src="http://d3js.org/d3.v2.min.js?2.9.6"></script>
 	</head>
 	<body>
 		
-		
+		<h2> styling an HTML div</h2>
 		<script>
 			var data = [4, 8, 15, 16, 23, 42];
 			var x = d3.scale.linear()
@@ -32,6 +37,23 @@
 				     .style("width", x)
 				     .text(String);
 			
+		</script>
+		
+		<h2> as SVG</h2>
+		<script>
+			var chart = d3.select("body").append("svg")
+			     .attr("class", "chart")
+		     	 .attr("width", 420)
+			     .attr("height", 20 * data.length);
+			var x = d3.scale.linear()
+			     .domain([0, d3.max(data)])
+			     .range([0, 420]);
+			chart.selectAll("rect")
+			     .data(data)
+			   		.enter().append("rect")
+			     		.attr("y", function(d, i) { return i * 20; })
+			     		.attr("width", x)
+			     		.attr("height", 20);
 		</script>
 		
 	</body>
