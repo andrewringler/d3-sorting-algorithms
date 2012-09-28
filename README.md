@@ -6,3 +6,4 @@ just learning some d3, running through the tutorials
 ## Did it
 
 * [bar - 1 tutorial](http://mbostock.github.com/d3/tutorial/bar-1.html)
+* [bar - 2 tutorial](http://mbostock.github.com/d3/tutorial/bar-2.html)
