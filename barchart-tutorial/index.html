@@ -81,6 +81,17 @@
 				     .attr("y2", 120)
 				     .style("stroke", "#ccc");
 			
+			chart.selectAll(".rule")
+					     .data(x.ticks(10))
+					   .enter().append("text")
+					     .attr("class", "rule")
+					     .attr("x", x)
+					     .attr("y", 0)
+					     .attr("dy", -3)
+					     .attr("text-anchor", "middle")
+					     .text(String);
+			
+			
 			
 		</script>
 		
