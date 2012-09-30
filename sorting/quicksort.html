@@ -5,7 +5,7 @@
     line {
       fill: none;
       stroke: #000;
-      stroke-width: 1px;
+      stroke-width: 10px;
     }
   </style>
 
@@ -22,15 +22,15 @@
   <script>
 
   var margin = {top: 230, right: 30, bottom: 230, left: 30},
-      width = 240 - margin.left - margin.right,
+      width = 960 - margin.left - margin.right,
       height = 500 - margin.top - margin.bottom;
 
-  var n = 240,
+  var n = 80,
       index = d3.range(n),
       data = shuffle(index.slice());
 
-  var x = d3.scale.ordinal().domain(index).rangePoints([0, n]),
-      a = d3.scale.linear().domain([0, n - 1]).range([height / 10, height]);
+  var x = d3.scale.ordinal().domain(index).rangePoints([0, width]),
+      a = d3.scale.linear().domain([0, n - 1]).range([height / 5, height]);
       
   var color = d3.scale.quantize()
           .domain([height / 10, height])
@@ -57,7 +57,7 @@
     var action = actions.pop();
     if (action) switch (action.type) {
       case "partition": {
-        line.style("stroke", function(d, i) { return i == action.pivot ? "black" : color(a(d)); });
+        line.style("stroke", function(d, i) { return i == action.pivot ? "red" : color(a(d)); });
         step();
         break;
       }
@@ -69,7 +69,7 @@
         break;
       }
     }
-  }, 20);
+  }, 200);
 
   </script>
 
