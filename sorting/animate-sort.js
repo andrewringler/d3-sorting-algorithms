@@ -3,7 +3,7 @@ var SortingAnimation = function() {
 	var ret = {};
 
 	ret.animate = function(sortingfunction, target) {		
-		var margin = {top: 0, right: 20, bottom: 0, left: 20},
+		var margin = {top: 0, right: 10, bottom: 0, left: 10},
 		    width = 960 - margin.left - margin.right,
 		    height = 50 - margin.top - margin.bottom;
 
