@@ -17,41 +17,45 @@ var SortingAnimation = function() {
 	
 	var allActions = [];
 	var lines = [];
-	setInterval(function step() {
-		for(var i=0; i<allActions.length; i++){
-			var action = allActions[i].actions.pop();
-			var line = lines[i];
-			if (action) switch (action.type) {
-			  case "partition": {
-			    line.style("stroke", function(d, i) { return i == action.pivot ? "red" : color(a(d)); });
-			    step();
-			    break;
-			  }
-			  case "swap": {
-			    var t = line[0][action.i];
-			    line[0][action.i] = line[0][action.j];
-			    line[0][action.j] = t;
-			    line.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
-			    line.style("stroke", function(d, i) { return color(a(d)); });
-			    break;
-			  }
-			  case "miss": {
-			    line.style("stroke", function(d, i) { return i == action.miss ? "pink" : color(a(d)); });
-			    break;
-			  }
-			  case "traverse": {
-			    line.style("stroke", function(d, i) { return i == action.traverse ? "pink" : color(a(d)); });
-			    break;
-			  }
-			case "done": {
-			    line.style("stroke", function(d, i) { return i == action.done ? color(a(d)) : color(a(d)); });
-			    break;				
-			}
-		  }	
-		}
-	}, 20);
 	
-	ret.animate = function(sortingfunction, target) {		
+	ret.start = function(delay) {
+		setTimeout(
+			function(){setInterval(function step() {
+				for(var i=0; i<allActions.length; i++){
+					var action = allActions[i].actions.pop();
+					var line = lines[i];
+					if (action) switch (action.type) {
+					  case "partition": {
+					    line.style("stroke", function(d, i) { return i == action.pivot ? "red" : color(a(d)); });
+					    step();
+					    break;
+					  }
+					  case "swap": {
+					    var t = line[0][action.i];
+					    line[0][action.i] = line[0][action.j];
+					    line[0][action.j] = t;
+					    line.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
+					    line.style("stroke", function(d, i) { return color(a(d)); });
+					    break;
+					  }
+					  case "miss": {
+					    line.style("stroke", function(d, i) { return i == action.miss ? "pink" : color(a(d)); });
+					    break;
+					  }
+					  case "traverse": {
+					    line.style("stroke", function(d, i) { return i == action.traverse ? "pink" : color(a(d)); });
+					    break;
+					  }
+					case "done": {
+					    line.style("stroke", function(d, i) { return i == action.done ? color(a(d)) : color(a(d)); });
+					    break;				
+					}
+				  }	
+				}
+			}, 20)}, delay);
+	};
+	
+	ret.prepareAnimation = function(sortingfunction, target) {		
 		var data = srcData.slice();
 		var svg = d3.select(target).append("svg")
 		    .attr("width", width + margin.left + margin.right)

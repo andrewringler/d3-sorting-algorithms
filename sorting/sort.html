@@ -23,44 +23,48 @@
   <!-- TODO sorting algorithms should be using the same animation loop and the same data set -->
   <section id="quicksort">
     <script>
-      SortingAnimation.animate(quicksort, "#quicksort");
+      SortingAnimation.prepareAnimation(quicksort, "#quicksort");
     </script>
     <h2 class="sorting-title">Quicksort</h2>
   </section>
 
   <section id="combsort">
     <script>
-      SortingAnimation.animate(combsort, "#combsort");
+      SortingAnimation.prepareAnimation(combsort, "#combsort");
     </script>
     <h2 class="sorting-title">Comb sort</h2>
   </section>
 
   <section id="gnomesort">
     <script>
-      SortingAnimation.animate(gnomesort, "#gnomesort");
+      SortingAnimation.prepareAnimation(gnomesort, "#gnomesort");
     </script>
     <h2 class="sorting-title">Gnome sort</h2>
   </section>
   
   <section id="selectionsort">
     <script>
-      SortingAnimation.animate(selectionSort, "#selectionsort");
+      SortingAnimation.prepareAnimation(selectionSort, "#selectionsort");
     </script>
     <h2 class="sorting-title">Selection sort</h2>
   </section>
 
   <section id="bubblesort">
     <script>
-      SortingAnimation.animate(bubblesort, "#bubblesort");
+      SortingAnimation.prepareAnimation(bubblesort, "#bubblesort");
     </script>
     <h2 class="sorting-title">Bubble sort</h2>
   </section>
   
   <section id="bogosort">
     <script>
-      SortingAnimation.animate(bogosort, "#bogosort");
+      SortingAnimation.prepareAnimation(bogosort, "#bogosort");
     </script>
     <h2 class="sorting-title">Bogosort</h2>
   </section>  
+  
+  <script>
+    SortingAnimation.start(500);
+  </script>
 </body>
 </html>
