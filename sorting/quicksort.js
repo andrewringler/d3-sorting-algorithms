@@ -1,4 +1,4 @@
-// see http://bl.ocks.org/1582075
+// taken from http://bl.ocks.org/1582075
 function quicksort(array) {
   var actions = [];
 

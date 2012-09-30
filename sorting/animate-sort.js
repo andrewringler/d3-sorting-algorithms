@@ -1,4 +1,4 @@
-// see http://bl.ocks.org/1582075
+// adapted from http://bl.ocks.org/1582075
 var SortingAnimation = function() {
 	var ret = {};
 

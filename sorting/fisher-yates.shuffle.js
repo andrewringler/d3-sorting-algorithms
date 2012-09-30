@@ -1,5 +1,5 @@
 // Fisher–Yates shuffle
-// see http://bl.ocks.org/1582075
+// taken from http://bl.ocks.org/1582075
 function shuffle(array, actions) {
   var i = array.length, j, t;
   while (--i > 0) {

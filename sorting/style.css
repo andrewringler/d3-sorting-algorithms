@@ -1,0 +1,15 @@
+body {
+  font-family: "Helvetica Neue", Helvetica, sans-serif;      
+}
+line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 10px;
+}
+h1, h2 {
+  font-weight: normal;
+}
+h2.sorting-title {
+  display: inline;
+  margin-bottom: 1em;
+}
