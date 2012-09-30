@@ -1,23 +1,22 @@
 // adapted from http://bl.ocks.org/1582075
 var SortingAnimation = function() {
 	var ret = {};
+	var margin = {top: 0, right: 10, bottom: 0, left: 10},
+	    width = 960 - margin.left - margin.right,
+	    height = 50 - margin.top - margin.bottom;
+	var n = 80,
+	    index = d3.range(n);
+
+	var x = d3.scale.ordinal().domain(index).rangePoints([0, width]),
+	    a = d3.scale.linear().domain([0, n - 1]).range([height / 5, height]);
+
+	var color = d3.scale.quantize()
+	        .domain([height / 10, height])
+	        .range(colorbrewer.Blues[9]);
+	var srcData = shuffle(index.slice());
 
 	ret.animate = function(sortingfunction, target) {		
-		var margin = {top: 0, right: 10, bottom: 0, left: 10},
-		    width = 960 - margin.left - margin.right,
-		    height = 50 - margin.top - margin.bottom;
-
-		var n = 80,
-		    index = d3.range(n),
-		    data = shuffle(index.slice());
-
-		var x = d3.scale.ordinal().domain(index).rangePoints([0, width]),
-		    a = d3.scale.linear().domain([0, n - 1]).range([height / 5, height]);
-
-		var color = d3.scale.quantize()
-		        .domain([height / 10, height])
-		        .range(colorbrewer.Blues[9]);
-
+		var data = srcData.slice();
 		var svg = d3.select(target).append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
