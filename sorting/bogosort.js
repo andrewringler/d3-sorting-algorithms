@@ -15,7 +15,7 @@ function bogosort(array) {
   function bogo() {
 	var tries = 0;
 	while(!inOrder()){
-		if(tries > 10) {
+		if(tries > 100) {
 			return;
 		}
 		tries++;
