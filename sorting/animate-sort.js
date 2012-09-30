@@ -2,7 +2,7 @@
 var SortingAnimation = function() {
 	var ret = {};
 
-	ret.animate = function(sortingfunction) {		
+	ret.animate = function(sortingfunction, target) {		
 		var margin = {top: 0, right: 20, bottom: 0, left: 20},
 		    width = 960 - margin.left - margin.right,
 		    height = 50 - margin.top - margin.bottom;
@@ -18,7 +18,7 @@ var SortingAnimation = function() {
 		        .domain([height / 10, height])
 		        .range(colorbrewer.Blues[9]);
 
-		var svg = d3.select("body").append("svg")
+		var svg = d3.select(target).append("svg")
 		    .attr("width", width + margin.left + margin.right)
 		    .attr("height", height + margin.top + margin.bottom)
 		  .append("g")
@@ -60,8 +60,12 @@ var SortingAnimation = function() {
 		      line.style("stroke", function(d, i) { return i == action.traverse ? "pink" : color(a(d)); });
 		      break;
 		    }
+			case "done": {
+		      line.style("stroke", function(d, i) { return i == action.done ? color(a(d)) : color(a(d)); });
+		      break;				
+			}
 		  }
-		}, 50);
+		}, 20);
 	};
 	
 	return ret;

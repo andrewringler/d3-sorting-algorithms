@@ -2,10 +2,19 @@
 <head>
   <meta charset="utf-8">
   <style>
+    body {
+      font-family: "Helvetica Neue", Helvetica, sans-serif;      
+    }
     line {
       fill: none;
       stroke: #000;
       stroke-width: 10px;
+    }
+    h1, h2 {
+      font-weight: normal;
+    }
+    h2.sorting-title {
+      display: inline;
     }
   </style>
 
@@ -17,21 +26,33 @@
 
   <script src="quicksort.js"></script>
   <script src="selection-sort.js"></script>
+  <script src="bubble-sort.js"></script>
   
   <script src="animate-sort.js"></script>
 </head>
 <body>
-  <h1>Sorting</h1>
+  <h1>Sorting Algorithms</h1>
+
+  <!-- TODO sorting algorithms should be using the same animation loop and the same data set -->
+  <section id="quicksort">
+    <script>
+      SortingAnimation.animate(quicksort, "#quicksort");
+    </script>
+    <h2 class="sorting-title">Quicksort</h2>
+  </section>
   
-  <h2>Selection Sort</h2>
-  <script>
-    SortingAnimation.animate(selectionSort);
-  </script>
+  <section id="selectionsort">
+    <script>
+      SortingAnimation.animate(selectionSort, "#selectionsort");
+    </script>
+    <h2 class="sorting-title">Selection sort</h2>
+  </section>
 
-  <h2>Quicksort</h2>
-  <script>
-    SortingAnimation.animate(quicksort);
-  </script>
-
+  <section id="bubblesort">
+    <script>
+      SortingAnimation.animate(bubblesort, "#bubblesort");
+    </script>
+    <h2 class="sorting-title">Bubble sort</h2>
+  </section>
 </body>
 </html>
