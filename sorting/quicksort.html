@@ -21,9 +21,9 @@
   
   <script>
 
-  var margin = {top: 230, right: 30, bottom: 230, left: 30},
+  var margin = {top: 0, right: 20, bottom: 0, left: 20},
       width = 960 - margin.left - margin.right,
-      height = 500 - margin.top - margin.bottom;
+      height = 50 - margin.top - margin.bottom;
 
   var n = 80,
       index = d3.range(n),
@@ -66,10 +66,15 @@
         line[0][action.i] = line[0][action.j];
         line[0][action.j] = t;
         line.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
+        line.style("stroke", function(d, i) { return color(a(d)); });
+        break;
+      }
+      case "miss": {
+        line.style("stroke", function(d, i) { return i == action.miss ? "pink" : color(a(d)); });
         break;
       }
     }
-  }, 200);
+  }, 50);
 
   </script>
 

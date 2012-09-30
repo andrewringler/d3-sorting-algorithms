@@ -5,7 +5,13 @@ function quicksort(array) {
   function partition(left, right, pivot) {
     var v = array[pivot];
     swap(pivot, --right);
-    for (var i = left; i < right; ++i) if (array[i] <= v) swap(i, left++);
+    for (var i = left; i < right; ++i) {
+		if (array[i] <= v) {
+			swap(i, left++);
+		} else {
+			actions.push({type: "miss", "miss": i});
+		}
+	}
     swap(left, right);
     return left;
   }
