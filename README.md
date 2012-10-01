@@ -2,7 +2,7 @@ Animated visualizations of [Quicksort](http://en.wikipedia.org/wiki/Quicksort), 
  [Gnome sort](http://en.wikipedia.org/wiki/Gnome_sort), [Selection sort](http://en.wikipedia.org/wiki/Selection_sort), 
 [Bubble sort](http://en.wikipedia.org/wiki/Bubble_sort) and [Bogosort](http://en.wikipedia.org/wiki/Bogosort).
   
-### Legend
+### The Viz
 
    * Array values are represented by line height and color.
    * Current location in a traversal is represented by a pink bar above the array item.
