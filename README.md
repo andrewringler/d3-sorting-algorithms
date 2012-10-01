@@ -1,6 +1,8 @@
 Animated visualizations of [Quicksort](http://en.wikipedia.org/wiki/Quicksort), [Comb sort](http://en.wikipedia.org/wiki/Comb_sort), 
  [Gnome sort](http://en.wikipedia.org/wiki/Gnome_sort), [Selection sort](http://en.wikipedia.org/wiki/Selection_sort), 
 [Bubble sort](http://en.wikipedia.org/wiki/Bubble_sort) and [Bogosort](http://en.wikipedia.org/wiki/Bogosort).
+
+See it live [http://bl.ocks.org/3809399](http://bl.ocks.org/3809399)
   
 ### The Viz
 
