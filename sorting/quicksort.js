@@ -31,6 +31,7 @@ function quicksort(array) {
       recurse(left, pivot);
       recurse(pivot + 1, right);
     }
+	actions.push({type: "done", "done": 0});
   }
 
   recurse(0, array.length);

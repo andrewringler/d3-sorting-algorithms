@@ -1,10 +1,10 @@
 // adapted from http://bl.ocks.org/1582075
 var SortingAnimation = function() {
 	var ret = {};
-	var margin = {top: 0, right: 10, bottom: 0, left: 10},
-	    width = 960 - margin.left - margin.right,
+	var margin = {top: 10, right: 10, bottom: 10, left: 10},
+	    width = 600 - margin.left - margin.right,
 	    height = 50 - margin.top - margin.bottom;
-	var n = 80,
+	var n = 50,
 	    index = d3.range(n);
 
 	var x = d3.scale.ordinal().domain(index).rangePoints([0, width]),
@@ -17,16 +17,18 @@ var SortingAnimation = function() {
 	
 	var allActions = [];
 	var lines = [];
-	
+	var infos = [];
 	ret.start = function(delay) {
 		setTimeout(
 			function(){setInterval(function step() {
 				for(var i=0; i<allActions.length; i++){
 					var action = allActions[i].actions.pop();
 					var line = lines[i];
+					var info = infos[i];
 					if (action) switch (action.type) {
 					  case "partition": {
-					    line.style("stroke", function(d, i) { return i == action.pivot ? "red" : color(a(d)); });
+					    info.style("stroke", function(d, i) { return i == action.pivot ? "red" : null; });
+					    info.style("opacity", function(d, i) { return i == action.pivot ? 1 : 0; });
 					    step();
 					    break;
 					  }
@@ -36,18 +38,31 @@ var SortingAnimation = function() {
 					    line[0][action.j] = t;
 					    line.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
 					    line.style("stroke", function(d, i) { return color(a(d)); });
+					
+					    info.style("opacity", function(d, i) { return i == action.i || i == action.j ? 1 : 0; });						
+					    info.style("stroke", function(d, i) { return color(a(d)); });					
+					    break;
+					  }
+					  case "shuffle": {
+					    var t = line[0][action.i];
+					    line[0][action.i] = line[0][action.j];
+					    line[0][action.j] = t;
+					    line.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
+					    line.style("stroke", function(d, i) { return color(a(d)); });
 					    break;
 					  }
 					  case "miss": {
-					    line.style("stroke", function(d, i) { return i == action.miss ? "pink" : color(a(d)); });
+					    info.style("opacity", function(d, i) { return i == action.miss ? 1 : 0; });						
+					    info.style("stroke", function(d) { return "pink"; })
 					    break;
 					  }
 					  case "traverse": {
-					    line.style("stroke", function(d, i) { return i == action.traverse ? "pink" : color(a(d)); });
+					    info.style("opacity", function(d, i) { return i == action.traverse ? 1 : 0; });
+					    info.style("stroke", function(d) { return "pink"; })
 					    break;
 					  }
 					case "done": {
-					    line.style("stroke", function(d, i) { return i == action.done ? color(a(d)) : color(a(d)); });
+					    info.style("opacity", function(d, i) { return 0; });
 					    break;				
 					}
 				  }	
@@ -72,12 +87,25 @@ var SortingAnimation = function() {
 		    .attr("y2", function(d) { return -a(d); })
 		    .attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
 		
+		 var info = svg.selectAll("g")
+		      .data(data)
+		    .enter().append("svg:g")
+		 	.append("svg:line")
+		    .attr("x1", function(d) { return 0; })
+		    .attr("y1", function(d) { return -height-10; })
+		    .attr("x2", function(d) { return 0; })
+		    .attr("y2", function(d) { return -height-5; })
+		    .style("stroke", function(d) { return "pink"; })
+		    .style("opacity", function(d) { return 0; })
+			.attr("transform", function(d, i) { return "translate(" + x(i) + ")"; });
+		
 		// sort the list, then reverse the stack of operations so we can animate chronologically from the start
 		var actions = sortingfunction(data).reverse();
 		
 		// push our actions and reference to our lines to the animator	
 		allActions.push({actions: actions});
 		lines.push(line);
+		infos.push(info);
 	};
 	
 	return ret;

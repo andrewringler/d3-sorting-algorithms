@@ -6,10 +6,21 @@ line {
   stroke: #000;
   stroke-width: 10px;
 }
+line.pivot {
+  stroke: 'pink';
+  opacity: 1;
+}
 h1, h2 {
   font-weight: normal;
 }
+svg {
+	float: left;
+}
 h2.sorting-title {
-  display: inline;
-  margin-bottom: 1em;
+	float: left;
+	margin: 0.5em 0 0 1em;
+	padding: 0;
+}
+section {
+	clear: left;
 }

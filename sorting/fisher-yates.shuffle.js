@@ -7,7 +7,7 @@ function shuffle(array, actions) {
     t = array[j];
     array[j] = array[i];
     array[i] = t;
-	if(actions) actions.push({type: "swap", i: i, j: j});
+	if(actions) actions.push({type: "shuffle", i: i, j: j});
   }
   return array;
 }

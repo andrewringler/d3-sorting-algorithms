@@ -22,6 +22,7 @@ function bogosort(array) {
 		// TODO capture operations in shuffle
 		shuffle(array, actions);
 	}
+	actions.push({type: "done", "done": i});
   }
 
   bogo();

@@ -24,6 +24,7 @@ function gnomesort(array) {
 			}
 		}
 	}
+	actions.push({type: "done", "done": 0});
   }
 
   gnome();

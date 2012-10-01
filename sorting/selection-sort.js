@@ -20,6 +20,7 @@ function selectionSort(array) {
 
 	  recurse(left+1, right);		
 	}
+	actions.push({type: "done", "done": i});
   }
 
   recurse(0, array.length);
