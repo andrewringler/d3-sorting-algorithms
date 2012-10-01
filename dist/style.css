@@ -21,6 +21,15 @@ h2.sorting-title {
 	margin: 0.5em 0 0 1em;
 	padding: 0;
 }
+a {
+  color: steelblue;
+  text-decoration: none;
+  font-weight: normal;
+}
 section {
 	clear: left;
+}
+#wrap {
+	height: 500px;
+	padding: 80px 0 0 40px;
 }
