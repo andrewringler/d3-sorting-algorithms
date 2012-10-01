@@ -9,3 +9,11 @@ Animated visualizations of [Quicksort](http://en.wikipedia.org/wiki/Quicksort), 
    * Item swaps are signified by a bar of the same color as the array item above that item.
 
 Built with [D3.js](http://mbostock.github.com/d3/). Adapted from Mike Bostock's [Quicksort](http://bl.ocks.org/1582075).
+
+### Build
+
+   * Install nvm
+   * nvm use v0.8.8
+   * npm install -g grunt
+   * npm install grunt-contrib
+   * grunt
