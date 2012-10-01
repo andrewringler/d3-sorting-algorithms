@@ -1,17 +1,11 @@
-hack-d3
-=======
+Animated visualizations of [Quicksort](http://en.wikipedia.org/wiki/Quicksort), [Comb sort](http://en.wikipedia.org/wiki/Comb_sort), 
+ [Gnome sort](http://en.wikipedia.org/wiki/Gnome_sort), [Selection sort](http://en.wikipedia.org/wiki/Selection_sort), 
+[Bubble sort](http://en.wikipedia.org/wiki/Bubble_sort) and [Bogosort](http://en.wikipedia.org/wiki/Bogosort).
+  
+### Legend
 
-just learning some d3, running through the tutorials
+   * Array values are represented by line height and color.
+   * Current location in a traversal is represented by a pink bar above the array item.
+   * Item swaps are signified by a bar of the same color as the array item above that item.
 
-## Learning
-
-I just want to keep track of some of the tutorials I have been following
-
-* [bar - 1 tutorial](http://mbostock.github.com/d3/tutorial/bar-1.html)
-* [bar - 2 tutorial](http://mbostock.github.com/d3/tutorial/bar-2.html)
-* [home page notes](http://d3js.org/)
-* [thinking with joins](http://bost.ocks.org/mike/join/)
-* [paths](http://bost.ocks.org/mike/path/)
-* [Fisher–Yates Shuffle in d3](http://bost.ocks.org/mike/shuffle/)
-* [mergesort in protovis](http://mbostock.github.com/protovis/ex/sort.html)
-* [quicksort in d3](http://bl.ocks.org/1582075)
+Built with [D3.js](http://mbostock.github.com/d3/). Adapted from Mike Bostock's [Quicksort](http://bl.ocks.org/1582075).
