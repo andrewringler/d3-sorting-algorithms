@@ -17,5 +17,5 @@ Built with [D3.js](http://mbostock.github.com/d3/). Adapted from Mike Bostock's 
    * Install nvm
    * nvm use v0.8.8
    * npm install -g grunt
-   * npm install grunt-contrib
+   * npm install
    * grunt
